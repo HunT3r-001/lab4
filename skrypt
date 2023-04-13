@@ -1,9 +1,9 @@
 #!/bin/bash
 # Obsługa flagi --date
-if [ "$1" = "--date" ]; then
+if [[ "$1" = "--date" || "$1" = "-d" ]]; then
     echo "Dzisiaj jest $(date +%Y-%m-%d)"
 # Obsługa flagi --logs bez argumentu
-elif [ "$1" = "--logs" ]; then
+elif [[ "$1" = "--logs" || "$1" = "-l" ]]; then
     for i in {1..100}; do
         filename="log${i}.txt"
         echo "Nazwa pliku: $filename" > "$filename"
@@ -11,7 +11,7 @@ elif [ "$1" = "--logs" ]; then
         echo "Data utworzenia: $(date +%Y-%m-%d)" >> "$filename"
     done
 # Obsługa flagi --logs z argumentem liczby plików
-elif [ "$1" = "--logs" ] && [ "$2" -gt 0 ]; then
+elif [[ "$1" = "--logs" || "$1" = "-l" ]] && [ "$2" -gt 0 ]; then
     for i in $(seq 1 "$2"); do
         filename="log${i}.txt"
         echo "Nazwa pliku: $filename" > "$filename"
@@ -19,7 +19,7 @@ elif [ "$1" = "--logs" ] && [ "$2" -gt 0 ]; then
         echo "Data utworzenia: $(date +%Y-%m-%d)" >> "$filename"
     done
 # Obsługa flagi --help
-elif [ "$1" = "--help" ]; then
+elif [[ "$1" = "--help" || "$1" = "-h" ]]; then
     echo "Dostępne opcje:"
     echo "--date - wyświetla dzisiejszą datę"
     echo "--logs - tworzy 100 plików logx.txt z nazwą, nazwą skryptu i datą utworzenia"
