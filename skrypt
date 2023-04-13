@@ -24,3 +24,21 @@ elif [[ "$1" = "--help" || "$1" = "-h" ]]; then
     echo "--date - wyświetla dzisiejszą datę"
     echo "--logs - tworzy 100 plików logx.txt z nazwą, nazwą skryptu i datą utworzenia"
     echo "--logs N - tworzy N plików logx.txt z nazwą, nazwą skryptu i datą utworzenia"
+
+
+# Obsługa flagi --init
+if [ "$1" = "--init" ]; then
+  # Klonuj repozytorium do bieżącego katalogu
+  git https://github.com/HunT3r-001/lab4 .
+
+  # Dodaj ścieżkę do katalogu bieżącego do zmiennej środowiskowej PATH
+  echo "export PATH=\"\${PATH}:$(pwd)\"" >> ~/.bashrc
+
+  # Przeładuj plik .bashrc
+  source ~/.bashrc
+
+  echo "Repozytorium zostało sklonowane i ścieżka dodana do zmiennej środowiskowej PATH."
+else
+  echo "Użycie: skrypt.sh --init"
+  exit 1
+fi
