@@ -24,6 +24,9 @@ elif [[ "$1" = "--help" || "$1" = "-h" ]]; then
     echo "--date - wyświetla dzisiejszą datę"
     echo "--logs - tworzy 100 plików logx.txt z nazwą, nazwą skryptu i datą utworzenia"
     echo "--logs N - tworzy N plików logx.txt z nazwą, nazwą skryptu i datą utworzenia"
+    echo "-d - wyświetla dzisiejszą datę"
+    echo "-l - tworzy 100 plików logx.txt z nazwą, nazwą skryptu i datą utworzenia"
+    echo "-l N - tworzy N plików logx.txt z nazwą, nazwą skryptu i datą utworzenia"
 
 
 # Obsługa flagi --init
