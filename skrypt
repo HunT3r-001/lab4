@@ -18,3 +18,9 @@ elif [ "$1" = "--logs" ] && [ "$2" -gt 0 ]; then
         echo "Nazwa skryptu: $0" >> "$filename"
         echo "Data utworzenia: $(date +%Y-%m-%d)" >> "$filename"
     done
+# Obsługa flagi --help
+elif [ "$1" = "--help" ]; then
+    echo "Dostępne opcje:"
+    echo "--date - wyświetla dzisiejszą datę"
+    echo "--logs - tworzy 100 plików logx.txt z nazwą, nazwą skryptu i datą utworzenia"
+    echo "--logs N - tworzy N plików logx.txt z nazwą, nazwą skryptu i datą utworzenia"
