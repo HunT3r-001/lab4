@@ -1,1 +1,4 @@
 #!/bin/bash
+# Obsługa flagi --date
+if [ "$1" = "--date" ]; then
+    echo "Dzisiaj jest $(date +%Y-%m-%d)"
