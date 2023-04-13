@@ -10,3 +10,11 @@ elif [ "$1" = "--logs" ]; then
         echo "Nazwa skryptu: $0" >> "$filename"
         echo "Data utworzenia: $(date +%Y-%m-%d)" >> "$filename"
     done
+# Obsługa flagi --logs z argumentem liczby plików
+elif [ "$1" = "--logs" ] && [ "$2" -gt 0 ]; then
+    for i in $(seq 1 "$2"); do
+        filename="log${i}.txt"
+        echo "Nazwa pliku: $filename" > "$filename"
+        echo "Nazwa skryptu: $0" >> "$filename"
+        echo "Data utworzenia: $(date +%Y-%m-%d)" >> "$filename"
+    done
